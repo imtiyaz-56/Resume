@@ -1,0 +1,200 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Shekh Imtiyaz} \\[7.5pt]
+\href{https://https://github.com/imtiyaz-56}{\raisebox{-0.05\height}\faGithub\ Imtiyaz} \ $|$ \ 
+\href{https://www.linkedin.com/in/shekh-imtiyaz-528111359/}{\raisebox{-0.05\height}\faLinkedin\ imtiyaz56} \ $|$ \ 
+% \href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+\href{mailto:sheikhimtiyaz3333@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ sheikhimtiyaz3333@gmail.com} \ $|$ \ 
+\href{tel:+8801751673484}{\raisebox{-0.05\height}\faMobile \ +8801751673484} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/imtiyaz-56/Resume}{click here}.
+
+%About me
+\section{About Me}
+I'm currently in my 4th year, pursuing a Computer Science degree at Hajee Mohammad Danesh Science and Technology University, Dinajpur-5200, Bangladesh. My passion lies in crafting user-friendly and visually captivating websites. I thrive on collaborating with teams to solve challenges and bring ideas to fruition. I also enjoy contributing to open-source projects and, I relax and uplift my mood through music.
+
+%Experience
+\section{Work Experience}
+
+\begin{joblong}{Computer Engineer}{Jun 2022 - present}
+\item Assisted in \textbf{Chaudhary Group of Companies, Nepal} for Designing and implementing software enhancements using Web design, resulting in a 75 percentage of reduction in system response time.
+\end{joblong}
+
+\begin{joblong}{Foreman Electrician Helper}{Mar 2020 - Jan 2021}
+\item Assisted the Foreman Electrician in supervising and coordinating electrical
+installations, repairs, and maintenance tasks. Helped in inspecting electrical components for compliance with safety standards.
+\end{joblong}
+  
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Home Service Management System} & \hfill \href{https://kajbondu.web.app/}{Link to Demo} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{HSMS is a digital platform website where workers allows to find suitable jobs based on their expertise, connects customers with skilled service providers and builds a long-term trust between users and service providers.
+}  \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{AI Chat Bot} & \hfill \href{https://jemini-bot.netlify.app/}{Link to Demo} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{An AI chatbot is a computer program designed to simulate human-like conversation. It uses natural language processing to understand, interpret, and respond to text or voice input. Depending on its design, it may also learn and improve over time using machine learning.
+}  \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2021 - present & Bachelor's Degree at \textbf{HSTU, Dinajpur-5200} \hfill \normalsize (GPA: -.-/4.0) \\
+
+2020 & Skill Test on Building Electrician, Level One, CTEVT, Nepal.  \\ 
+
+2017 - 2019 & +2, National Examination Board \hfill  (GPA: 2.95/4.0) \\
+
+2006 - 2017 & S.E.E, National Examination Board \hfill  (GPA: 3.15/4.0) \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l l l l l@{}}
+- Web Design &  - UI Design &  - Animation  &  - Java  &  - SQL\\  
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+\section{Languages}
+\begin{tabularx}{\linewidth}{@{}l l l l l@{}}
+- Nepali &  - English &  - Hindi  &  - Bhojpuri  &  - Bengali\\  
+\end{tabularx}
+
+
+\end{document}
